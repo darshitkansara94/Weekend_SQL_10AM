@@ -47,5 +47,17 @@ CTE :
 			Select * from cte_Employeename
 			where SrNo >= 2
 
+			Select * from tbl_EmployeeMaster
+		
+			With cte_Employeename as
+			(
+				Select 
+					row_number() over(partition by Employee_Name 
+					order by Employee_Id desc) as SrNo,
+				Employee_Name,Employee_Salary from tbl_EmployeeMaster
+			)
+
+			Delete from cte_Employeename where srno >=2
+
 
 
