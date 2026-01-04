@@ -69,22 +69,36 @@ Index :
 				We need to use where clause to add condition with the index.
 
 				-- Syntax :
-					Create nonclustered index idx_name on
+					Create unique nonclustered index idx_name on
 					tbl_name(column_name)
 					Where condition
 
 				-- Example :
-					Create nonclustered index idx_Emp_NameIsActive on
+					Create unique nonclustered index idx_Emp_NameIsActive on
 					tbl_EmployeeMaster(Employee_Name)
 					Where Is_Active = 0
 
+					Select * from tbl_EmployeeMaster where Is_Active = 0
+
+					-- Drop index idx_Emp_NameIsActive on tbl_EmployeeMaster
+
 					Select * from tbl_EmployeeMaster
 
-					Insert into tbl_EmployeeMaster(Employee_Name,Employee_Salary,Is_Active)
-					values('raj',25000,0)
+					--Update tbl_EmployeeMaster set Is_Active = 1 where Employee_Id = 2
 
-					Update tbl_EmployeeMaster set Is_Active = 1
-					where Employee_Id = 7
+					Insert into tbl_EmployeeMaster(Employee_Name,Employee_Salary,Is_Active)
+					values('dev','25000',0)
+
+					--With cte_name as
+					--(
+					--	Select ROW_NUMBER() over(partition by Employee_name  order by Employee_Id) as Srno,
+					--	Employee_name
+					--	from tbl_EmployeeMaster
+					--)
+
+					--delete from cte_name where srno >=2
+
+
 
 
 
