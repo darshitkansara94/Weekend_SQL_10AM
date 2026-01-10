@@ -34,3 +34,16 @@ Trigger :
 
 		Update tbl_CategoryMaster set category_Name = 'Television'
 		where Category_Id = 1012
+
+		Select * from tbl_CategoryMaster
+		Select * from tbl_LogMaster
+
+		Create table tbl_LogMaster
+		(
+			Log_Id int primary key identity(1,1),
+			Log_Description nvarchar(max),
+			UserId int
+		)
+
+		insert into tbl_CategoryMaster (category_Name,userid)values
+		('Iphone',2);
